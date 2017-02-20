@@ -1,5 +1,5 @@
 library(shiny)
-setwd('/home/alex/R/URPP/myapp')
+folder_dir<-getwd()
 
 shinyServer(function(input, output) {
 
@@ -50,7 +50,7 @@ shinyServer(function(input, output) {
       })
     
      library(igraph)
-     source('my.sim.app.R')
+     source(paste0(folder_dir,'my.sim.app.R'))
      
     myplots <- function(n,graph, states, thresholds){
         set.seed(as.numeric(my.time()))
