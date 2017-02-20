@@ -1,7 +1,7 @@
 library(shiny)
-folder_dir<-getwd()
 
 shinyServer(function(input, output) {
+	folder_dir<-getwd()
 
    my.time <- eventReactive(input$go, {Sys.time()})
    n <- eventReactive(input$go, {input$n})
@@ -41,7 +41,7 @@ shinyServer(function(input, output) {
      set.seed(sample.time())
      return(sample(1:M(), size=5))
    })
-   
+
     output$message <- renderUI({
       HTML('Running simulations...<br/>')
       HTML(paste('n=', n(), '<br/>'))
@@ -50,8 +50,9 @@ shinyServer(function(input, output) {
       })
     
      library(igraph)
-     source(paste0(folder_dir,'my.sim.app.R'))
-     
+
+     source(paste0(folder_dir,'/my.sim.app.R'))
+
     myplots <- function(n,graph, states, thresholds){
         set.seed(as.numeric(my.time()))
         colors <- rep('white', n)

@@ -1,5 +1,4 @@
 library(shiny)
-#setwd('/home/alex/R/URPP')
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
